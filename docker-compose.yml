@@ -9,6 +9,8 @@ services:
       - "5555:5000"
     volumes:
       - ./:/code
+    depends_on:
+      - arbiter-db
 
   arbiter-db:
     image: mongo
@@ -17,7 +19,7 @@ services:
     ports: 
       - "27017"
     volumes: 
-      - mongo-arbiter-vol:/data/db
+      - arbiter-vol:/data/db
 
 volumes: 
   arbiter-db:
