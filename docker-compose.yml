@@ -22,4 +22,4 @@ services:
       - arbiter-vol:/data/db
 
 volumes: 
-  arbiter-db:
+  arbiter-vol:
