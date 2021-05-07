@@ -1,0 +1,23 @@
+version: '3.9'
+
+services: 
+  arbiter:
+    build: ./
+    container_name: arbiter-ml
+    restart: on-failure
+    ports: 
+      - "5555:5000"
+    volumes:
+      - ./:/code
+
+  arbiter-db:
+    image: mongo
+    restart: on-failure
+    container_name: mongo-arbiter
+    ports: 
+      - "27017"
+    volumes: 
+      - mongo-arbiter-vol:/data/db
+
+volumes: 
+  arbiter-db:
